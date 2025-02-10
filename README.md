@@ -1,5 +1,7 @@
 # Google Maps Scraper
 
+![Feature Image](public/feature-image-google-maps-scraper.png)
+
 ## Description
 
 Google Maps Scraper is a web application that allows users to scrape valuable business data from Google Maps listings. Users can enter a search query, and the application will extract information such as business name, rating, review count, service category, address, operating hours, phone number, and website URL.
