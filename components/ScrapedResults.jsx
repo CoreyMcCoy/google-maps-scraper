@@ -50,7 +50,9 @@ const ScrapedListings = ({ results, query }) => {
   return (
     <div>
       {/* Display the results */}
-      <h1 className="text-4xl tracking-tight font-black">Scraped results for {query}</h1>
+      <h1 className="text-4xl tracking-tight font-black">
+        {`Scraped ${listings.length} listings for "${query}"`}
+      </h1>
       {listings && (
         <div className="mt-10 text-left px-2">
           <div className="flex justify-end items-center mb-4">
