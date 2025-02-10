@@ -2,7 +2,7 @@ import GetListings from '@/components/GetListings';
 
 export default function Home() {
   return (
-    <section className="py-8">
+    <section>
       <GetListings />
     </section>
   );
