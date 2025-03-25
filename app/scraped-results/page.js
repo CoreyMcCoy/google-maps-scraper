@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Loading from '@/components/Loading';
-import ScrapedListings from '@/components/ScrapedResults';
+import ScrapedListings from '@/components/ScrapedListings';
 
 export default function ScrapedResults() {
   const router = useRouter();
@@ -28,5 +28,13 @@ export default function ScrapedResults() {
     }
   }, []);
 
-  return <div>{results ? <ScrapedListings results={results} query={query} /> : <Loading />}</div>;
+  return (
+    <div>
+      {results ? (
+        <ScrapedListings results={results} query={query} />
+      ) : (
+        <Loading />
+      )}
+    </div>
+  );
 }

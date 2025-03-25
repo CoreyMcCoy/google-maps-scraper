@@ -42,7 +42,12 @@ npm run dev
 - Scrape business data from Google Maps listings
 - Extract information such as business name, rating, review count, service category, address, operating hours, phone number, and website URL
 - Auto-scrolls to load more results
+- Autocomplete to ensure valid search
 - Copy results to Google Sheets
+
+## Note
+
+- At this time, the scraper doesn't retrieve phone number and website info for any business with "Call now" or "Order online" feature enabled on Google.
 
 ## Contributing
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Copy, Link2, Link2Off } from 'lucide-react'; // Import the copy icon
+import { Copy, Link2, Link2Off, Phone } from 'lucide-react'; // Import the copy icon
 
 const ScrapedListings = ({ results, query }) => {
   const [listings, setListings] = useState(results);
@@ -54,20 +54,20 @@ const ScrapedListings = ({ results, query }) => {
         {`Scraped ${listings.length} listings for "${query}"`}
       </h1>
       {listings && (
-        <div className="mt-10 text-left px-2">
+        <div className="mt-10 text-left text-sm px-2">
           <div className="flex justify-end items-center mb-4">
             <button
               onClick={copyToClipboard}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
+              className="flex items-center text-sm gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
             >
               <Copy size={16} />
               {copySuccess ? 'Copied!' : 'Copy to Google Sheets'}
             </button>
           </div>
 
-          {/* Table view of results */}
+          {/* Option #1 - Dispaly the results in a Table */}
           <div className="overflow-x-auto">
-            <table className="min-w-full border-collapse border border-gray-200">
+            <table className="min-w-full border-collapse border border-gray-200 ">
               <thead>
                 <tr className="bg-gray-50">
                   <th className="border p-2">Business Name</th>
@@ -87,7 +87,14 @@ const ScrapedListings = ({ results, query }) => {
                     <td className="border p-2">{item.review_count}</td>
                     <td className="border p-2">{item.service_category}</td>
                     <td className="border p-2">{item.address}</td>
-                    <td className="border p-2">{item.phone_number}</td>
+                    <td className="border p-2 text-center">
+                      <span className="md:hidden inline-block">
+                        <Phone className="h-4 w-4" />
+                      </span>
+                      <span className="hidden md:block">
+                        {item.phone_number}
+                      </span>
+                    </td>
                     <td className="border p-2 flex justify-center">
                       {item.website_url ? (
                         <a
@@ -109,7 +116,7 @@ const ScrapedListings = ({ results, query }) => {
           </div>
         </div>
       )}
-      {/* Card view of results */}
+      {/* Option #2 - Display results in Cards */}
       {/* {results && (
         <div className="mt-10 text-left">
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -142,6 +149,8 @@ const ScrapedListings = ({ results, query }) => {
           </ul>
         </div>
       )} */}
+
+      {/* Option #3 - Display results in JSON */}
       {/* <pre className="text-left">{JSON.stringify(results, null, 2)}</pre> */}
     </div>
   );
