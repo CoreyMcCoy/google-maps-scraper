@@ -1,6 +1,6 @@
 # Google Maps Scraper
 
-![Feature Image](public/feature-image-google-maps-scraper.png)
+![Feature Image](public/google-maps-scraper.png)
 
 ## Description
 
