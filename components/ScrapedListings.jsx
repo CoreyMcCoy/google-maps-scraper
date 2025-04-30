@@ -6,32 +6,22 @@ const ScrapedListings = ({ results, query }) => {
   const [copySuccess, setCopySuccess] = useState(false);
 
   const formatForSheets = (data) => {
-    // Headers for the spreadsheet
-    const headers = [
-      'Business Name',
-      'Rating',
-      'Review Count',
-      'Service Category',
-      'Address',
-      'Phone Number',
-      'Website URL',
-    ].join('\t');
-
     // Format each row of data
     const rows = data.map((item) =>
       [
         item.business_name || '',
-        item.rating || '',
-        item.review_count || '',
         item.service_category || '',
-        item.address || '',
         item.phone_number || '',
         item.website_url || '',
+        item.rating || '',
+        item.review_count || '',
+        item.address || '',
+        item.gbp_link || '',
       ].join('\t')
     );
 
     // Combine headers and rows
-    return [headers, ...rows].join('\n');
+    return [...rows].join('\n');
   };
 
   const copyToClipboard = async () => {
@@ -71,23 +61,21 @@ const ScrapedListings = ({ results, query }) => {
               <thead>
                 <tr className="bg-gray-50">
                   <th className="border p-2">Business Name</th>
-                  <th className="border p-2">Rating</th>
-                  <th className="border p-2">Reviews</th>
                   <th className="border p-2">Category</th>
-                  <th className="border p-2">Address</th>
                   <th className="border p-2">Phone</th>
                   <th className="border p-2">Website</th>
+                  <th className="border p-2">Rating</th>
+                  <th className="border p-2">Reviews</th>
+                  <th className="border p-2">Address</th>
+                  <th className="border p-2">GBP Link</th>
                 </tr>
               </thead>
               <tbody>
                 {results.map((item, index) => (
                   <tr key={index} className="hover:bg-gray-50">
                     <td className="border p-2">{item.business_name}</td>
-                    <td className="border p-2">{item.rating}</td>
-                    <td className="border p-2">{item.review_count}</td>
                     <td className="border p-2">{item.service_category}</td>
-                    <td className="border p-2">{item.address}</td>
-                    <td className="border p-2 text-center">
+                    <td className="border p-2">
                       <span className="md:hidden inline-block">
                         <Phone className="h-4 w-4" />
                       </span>
@@ -109,6 +97,23 @@ const ScrapedListings = ({ results, query }) => {
                         <Link2Off size={20} />
                       )}
                     </td>
+                    <td className="border p-2">{item.rating}</td>
+                    <td className="border p-2">{item.review_count}</td>
+                    <td className="border p-2">{item.address}</td>
+                    <td className="border p-2 flex justify-center">
+                      {item.gbp_link ? (
+                        <a
+                          href={item.gbp_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500"
+                        >
+                          <Link2 size={20} />
+                        </a>
+                      ) : (
+                        <Link2Off size={20} />
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -116,39 +121,6 @@ const ScrapedListings = ({ results, query }) => {
           </div>
         </div>
       )}
-      {/* Option #2 - Display results in Cards */}
-      {/* {results && (
-        <div className="mt-10 text-left">
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {results.map((listing, index) => (
-              <li key={index} className="mb-6">
-                <strong>{listing.business_name}</strong>
-                <p>Rating: {listing.rating}</p>
-                <p>Review Count: {listing.review_count}</p>
-                <p>Service Category: {listing.service_category}</p>
-                <p>Address: {listing.address}</p>
-                <p>Operating Hours: {listing.operating_hours}</p>
-                <p>Phone Number: {listing.phone_number}</p>
-                <p>
-                  Website URL:
-                  {listing.website_url ? (
-                    <a
-                      href={listing.website_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500"
-                    >
-                      Go to Website
-                    </a>
-                  ) : (
-                    ' No website available'
-                  )}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )} */}
 
       {/* Option #3 - Display results in JSON */}
       {/* <pre className="text-left">{JSON.stringify(results, null, 2)}</pre> */}
