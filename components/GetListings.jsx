@@ -187,7 +187,7 @@ export default function GetListings() {
       <div className="text-center">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-6xl tracking-tight font-black pb-6">
-            Scrape valuable business data from Google Maps listings.
+            Get all listings for a search term.
           </h1>
         </div>
         <div className="max-w-3xl mx-auto">
@@ -212,7 +212,7 @@ export default function GetListings() {
                 type="submit"
                 className="bg-black text-white px-4 py-2 rounded-md"
               >
-                Scrape data
+                Get listings
               </button>
 
               {/* Suggestions dropdown */}

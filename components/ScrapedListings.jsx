@@ -39,7 +39,6 @@ const ScrapedListings = ({ results, query }) => {
 
   return (
     <div>
-      {/* Display the results */}
       <h1 className="text-4xl tracking-tight font-black">
         {`Scraped ${listings.length} listings for "${query}"`}
       </h1>

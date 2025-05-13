@@ -44,7 +44,10 @@ export default function Header() {
               className="menu menu-sm dropdown-content font-medium mt-3 z-[1] px-2 py-3 shadow-lg border rounded-box w-52"
             >
               <li>
-                <Link href="/scraped-results">Results</Link>
+                <Link href="/scraped-results">Many</Link>
+              </li>
+              <li>
+                <Link href="/audit-result">One</Link>
               </li>
             </ul>
           </div>
@@ -55,7 +58,10 @@ export default function Header() {
         <div className="navbar-end hidden md:flex">
           <ul className="menu menu-horizontal space-x-2">
             <li>
-              <Link href="/scraped-results">Results</Link>
+              <Link href="/scraped-results">Many</Link>
+            </li>
+            <li>
+              <Link href="/audit-result">One</Link>
             </li>
           </ul>
         </div>
