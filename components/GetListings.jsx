@@ -206,7 +206,7 @@ export default function GetListings() {
                 {...register('query', {
                   required: 'Query must be business related.',
                 })}
-                className="border border-gray-300 rounded-md px-4 py-2 flex-grow"
+                className="input input-border border-gray-300 rounded-md px-4 py-2 flex-grow"
               />
               <button
                 type="submit"
