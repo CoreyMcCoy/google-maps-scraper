@@ -15,20 +15,21 @@ export default function Home() {
     <>
       <div className="mb-8 text-right text-sm">
         <fieldset className="fieldset w-auto border px-4 mb-10 md:mb-0 bg-white rounded-box inline-block">
-          <legend className="fieldset-legend px-2">Select form</legend>
+          <legend className="fieldset-legend px-2">Scraping?</legend>
           <label className="label cursor-pointer flex items-center justify-between">
-            <span className="label-text mr-4">{showForm ? 'One' : 'Many'}</span>
+            <span className="label-text mr-2">One</span>
             <input
               type="checkbox"
               checked={showForm}
               onChange={handleToggle}
-              className="toggle toggle-sm toggle-neutral"
+              className="toggle toggle-sm text-base-content"
             />
+            <span className="label-text ml-2">Many</span>
           </label>
         </fieldset>
 
         {/* Conditionally Rendered Component */}
-        {showForm ? <ScrapeMapsPosition /> : <GetListings />}
+        {showForm ? <GetListings /> : <ScrapeMapsPosition />}
       </div>
     </>
   );
