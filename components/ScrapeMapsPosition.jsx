@@ -7,55 +7,6 @@ import { categories } from '@/lib/data';
 import { useRouter } from 'next/navigation';
 import Loading from '@/components/Loading';
 
-// Helper component to display the revenue context message
-// const RevenueContextMessage = ({
-//   position,
-//   potentialMonthlyRevenue,
-//   targetBusinessName,
-// }) => {
-//   if (potentialMonthlyRevenue === null || potentialMonthlyRevenue === undefined)
-//     return null;
-
-//   const formattedRevenue = potentialMonthlyRevenue.toLocaleString('en-US', {
-//     style: 'currency',
-//     currency: 'USD',
-//   });
-
-//   let messageIntro;
-//   if (typeof position === 'number' && position <= 3) {
-//     messageIntro = `Your business, "${targetBusinessName}", is currently in the Top 3 (Position ${position}).`;
-//     return (
-//       <p className="mb-3 text-base-content/90">
-//         {messageIntro} The figure of{' '}
-//         <strong className="text-primary">{formattedRevenue}/month</strong>{' '}
-//         represents the estimated total revenue generated across the Top 3 spots
-//         based on these assumptions.
-//       </p>
-//     );
-//   } else if (typeof position === 'number') {
-//     messageIntro = `Your business, "${targetBusinessName}", is currently at Position ${position}.`;
-//     return (
-//       <p className="mb-3 text-base-content/90">
-//         {messageIntro} You could be leaving about{' '}
-//         <strong className="text-primary">{formattedRevenue}/month</strong> on
-//         the table by not being in the Top 3.
-//       </p>
-//     );
-//   } else {
-//     // Not Found or N/A (e.g., "Not Found", "N/A (No target specified)")
-//     messageIntro = `The target business, "${targetBusinessName}", was ${position
-//       .toString()
-//       .toLowerCase()}.`;
-//     return (
-//       <p className="mb-3 text-base-content/90">
-//         {messageIntro} Businesses in the Top 3 for this type of search could be
-//         generating around{' '}
-//         <strong className="text-primary">{formattedRevenue}/month</strong>.
-//       </p>
-//     );
-//   }
-// };
-
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState(null);

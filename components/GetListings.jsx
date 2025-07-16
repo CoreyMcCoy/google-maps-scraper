@@ -95,30 +95,30 @@ export default function GetListings() {
       return;
     }
 
-    // Define location keywords once
-    const locationKeywords = ['in', 'near', 'around', 'close to'];
+    // // Define location keywords once
+    // const locationKeywords = ['in', 'near', 'around', 'close to'];
 
-    // Check if query contains at least one location keyword or is specific enough
-    let hasLocationKeyword = false;
-    for (const keyword of locationKeywords) {
-      if (query.toLowerCase().includes(` ${keyword} `)) {
-        hasLocationKeyword = true;
-        break;
-      }
-    }
+    // // Check if query contains at least one location keyword or is specific enough
+    // let hasLocationKeyword = false;
+    // for (const keyword of locationKeywords) {
+    //   if (query.toLowerCase().includes(` ${keyword} `)) {
+    //     hasLocationKeyword = true;
+    //     break;
+    //   }
+    // }
 
-    if (!hasLocationKeyword) {
-      // If no location keyword, check if query includes city, state, or zip code format
-      const cityStateZipPattern = /[A-Z][a-z]+(,\s*[A-Z]{2}|\s+\d{5})/;
-      if (!cityStateZipPattern.test(query)) {
-        setError('query', {
-          type: 'manual',
-          message: 'Please include a location (e.g., "plumbers in Chicago").',
-        });
-        setLoading(false);
-        return;
-      }
-    }
+    // if (!hasLocationKeyword) {
+    //   // If no location keyword, check if query includes city, state, or zip code format
+    //   const cityStateZipPattern = /[A-Z][a-z]+(,\s*[A-Z]{2}|\s+\d{5})/;
+    //   if (!cityStateZipPattern.test(query)) {
+    //     setError('query', {
+    //       type: 'manual',
+    //       message: 'Please include a location (e.g., "plumbers in Chicago").',
+    //     });
+    //     setLoading(false);
+    //     return;
+    //   }
+    // }
 
     // Extract potential category (first word/words before location keywords)
     let categoryPart = query;
