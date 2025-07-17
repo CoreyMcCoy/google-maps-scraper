@@ -5,7 +5,7 @@
 
 ## Overview
 
-Google Maps Scraper is a Next.js web application that enables users to extract business listing data from Google Maps in **two distinct modes**:
+This Google Maps Scraper is built with Next.js and let's users extract business listing data from Google Maps in **two distinct modes**:
 
 ### 1. Bulk Listings Scraper
 
