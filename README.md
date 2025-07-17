@@ -1,7 +1,9 @@
 # Google Maps Scraper
 
-![Feature Image](public/google-maps-scraper-many.png)
-![Feature Image](public/google-maps-scraper-one.png)
+<div style="display: flex; gap: 16px;">
+    <img src="public/google-maps-scraper-many.png" alt="Bulk Listings Scraper" style="width: 49%; max-width: 400px;">
+    <img src="public/google-maps-scraper-one.png" alt="Audit & Position Scraper" style="width: 49%; max-width: 400px;">
+</div>
 
 ## Overview
 
