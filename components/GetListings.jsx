@@ -96,7 +96,7 @@ export default function GetListings() {
     }
 
     // // Define location keywords once
-    // const locationKeywords = ['in', 'near', 'around', 'close to'];
+    const locationKeywords = ['in', 'near', 'around', 'close to'];
 
     // // Check if query contains at least one location keyword or is specific enough
     // let hasLocationKeyword = false;
