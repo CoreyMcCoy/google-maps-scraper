@@ -17,7 +17,7 @@ const ScrapedListings = ({ results, query }) => {
         item.review_count || '',
         item.address || '',
         item.gbp_link || '',
-      ].join('\t')
+      ].join('\t'),
     );
 
     // Combine headers and rows
@@ -65,7 +65,6 @@ const ScrapedListings = ({ results, query }) => {
                   <th className="border p-2">Website</th>
                   <th className="border p-2">Rating</th>
                   <th className="border p-2">Reviews</th>
-                  <th className="border p-2">Address</th>
                   <th className="border p-2">GBP Link</th>
                 </tr>
               </thead>
@@ -78,9 +77,7 @@ const ScrapedListings = ({ results, query }) => {
                       <span className="md:hidden inline-block">
                         <Phone className="h-4 w-4" />
                       </span>
-                      <span className="hidden md:block">
-                        {item.phone_number}
-                      </span>
+                      <span className="hidden md:block">{item.phone_number}</span>
                     </td>
                     <td className="border p-2 flex justify-center">
                       {item.website_url ? (
@@ -98,7 +95,6 @@ const ScrapedListings = ({ results, query }) => {
                     </td>
                     <td className="border p-2">{item.rating}</td>
                     <td className="border p-2">{item.review_count}</td>
-                    <td className="border p-2">{item.address}</td>
                     <td className="border p-2 flex justify-center">
                       {item.gbp_link ? (
                         <a
