@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#faf9f5] antialiased`}>
+      <body className={`${inter.className} antialiased`}>
         <Header />
         <main className="min-h-screen py-8">
           <div className="container flex flex-col mx-auto">{children}</div>

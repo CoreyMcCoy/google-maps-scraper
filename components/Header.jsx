@@ -9,10 +9,7 @@ export default function Header() {
         </Link>
         <ul className="flex space-x-4 text-sm">
           <li>
-            <Link href="/audit-result">One</Link>
-          </li>
-          <li>
-            <Link href="/scraped-results">Many</Link>
+            <Link href="/scraped-results">Results</Link>
           </li>
         </ul>
       </nav>

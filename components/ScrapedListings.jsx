@@ -14,8 +14,6 @@ const ScrapedListings = ({ results, query }) => {
         item.phone_number || '',
         item.website_url || '',
         item.rating || '',
-        item.review_count || '',
-        item.address || '',
         item.gbp_link || '',
       ].join('\t'),
     );
@@ -39,11 +37,11 @@ const ScrapedListings = ({ results, query }) => {
 
   return (
     <div>
-      <h1 className="text-4xl tracking-tight font-black">
+      <h1 className="text-2xl tracking-tight font-semibold">
         {`Scraped ${listings.length} listings for "${query}"`}
       </h1>
       {listings && (
-        <div className="mt-10 text-left text-sm px-2">
+        <div className="text-left text-sm px-2">
           <div className="flex justify-end items-center mb-4">
             <button
               onClick={copyToClipboard}
@@ -64,7 +62,6 @@ const ScrapedListings = ({ results, query }) => {
                   <th className="border p-2">Phone</th>
                   <th className="border p-2">Website</th>
                   <th className="border p-2">Rating</th>
-                  <th className="border p-2">Reviews</th>
                   <th className="border p-2">GBP Link</th>
                 </tr>
               </thead>
@@ -94,7 +91,6 @@ const ScrapedListings = ({ results, query }) => {
                       )}
                     </td>
                     <td className="border p-2">{item.rating}</td>
-                    <td className="border p-2">{item.review_count}</td>
                     <td className="border p-2 flex justify-center">
                       {item.gbp_link ? (
                         <a
@@ -116,9 +112,6 @@ const ScrapedListings = ({ results, query }) => {
           </div>
         </div>
       )}
-
-      {/* Option #3 - Display results in JSON */}
-      {/* <pre className="text-left">{JSON.stringify(results, null, 2)}</pre> */}
     </div>
   );
 };

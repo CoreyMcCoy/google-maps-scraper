@@ -38,9 +38,7 @@ export default function GetListings() {
 
       if (wordBeingTyped && wordBeingTyped.length > 1) {
         const filtered = validCategories
-          .filter((cat) =>
-            cat.toLowerCase().includes(wordBeingTyped.toLowerCase())
-          )
+          .filter((cat) => cat.toLowerCase().includes(wordBeingTyped.toLowerCase()))
           .slice(0, 5); // Limit to 5 suggestions
 
         setSuggestions(filtered);
@@ -58,10 +56,7 @@ export default function GetListings() {
   // Handle click outside of suggestions to close them
   useEffect(() => {
     function handleClickOutside(event) {
-      if (
-        suggestionsRef.current &&
-        !suggestionsRef.current.contains(event.target)
-      ) {
+      if (suggestionsRef.current && !suggestionsRef.current.contains(event.target)) {
         setShowSuggestions(false);
       }
     }
@@ -95,30 +90,8 @@ export default function GetListings() {
       return;
     }
 
-    // // Define location keywords once
+    // Define location keywords once
     const locationKeywords = ['in', 'near', 'around', 'close to'];
-
-    // // Check if query contains at least one location keyword or is specific enough
-    // let hasLocationKeyword = false;
-    // for (const keyword of locationKeywords) {
-    //   if (query.toLowerCase().includes(` ${keyword} `)) {
-    //     hasLocationKeyword = true;
-    //     break;
-    //   }
-    // }
-
-    // if (!hasLocationKeyword) {
-    //   // If no location keyword, check if query includes city, state, or zip code format
-    //   const cityStateZipPattern = /[A-Z][a-z]+(,\s*[A-Z]{2}|\s+\d{5})/;
-    //   if (!cityStateZipPattern.test(query)) {
-    //     setError('query', {
-    //       type: 'manual',
-    //       message: 'Please include a location (e.g., "plumbers in Chicago").',
-    //     });
-    //     setLoading(false);
-    //     return;
-    //   }
-    // }
 
     // Extract potential category (first word/words before location keywords)
     let categoryPart = query;
@@ -134,9 +107,7 @@ export default function GetListings() {
     }
 
     // Validation Logic: Case-insensitive check of extracted category part
-    const lowerCaseValidCategories = validCategories.map((cat) =>
-      cat.toLowerCase()
-    ); // Lowercase valid categories for comparison
+    const lowerCaseValidCategories = validCategories.map((cat) => cat.toLowerCase()); // Lowercase valid categories for comparison
 
     // Check if any word in the category part matches a valid category
     const categoryWords = categoryPart.toLowerCase().split(' ');
@@ -184,17 +155,15 @@ export default function GetListings() {
 
   return (
     <>
-      <div className="text-center">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl tracking-tight font-black pb-6">
-            Get all listings for a search term.
-          </h1>
-        </div>
-        <div className="max-w-3xl mx-auto">
-          <p className="pb-10">
-            Extract information from Google Maps listings. Just enter a query
-            below to get started. For example, you can enter "HVAC in Waco" to
-            get a list of HVAC companies in Waco, Texas.
+      <div className="max-w-3xl bg-[#faf9f5] p-4 rounded-md">
+        <h1 className="text-2xl tracking-tight font-semibold pb-6">
+          Get all listings for a search term.
+        </h1>
+        <div>
+          <p className="pb-10 text-sm">
+            Extract information from Google Maps listings. Just enter a query below to get started.
+            For example, you can enter "HVAC in Waco" to get a list of HVAC companies in Waco,
+            Texas.
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="mb-10">
@@ -206,12 +175,9 @@ export default function GetListings() {
                 {...register('query', {
                   required: 'Query must be business related.',
                 })}
-                className="input input-border border-gray-300 rounded-md px-4 py-2 flex-grow"
+                className="placeholder:text-gray-400 placeholder:text-sm border-gray-300 rounded-md px-4 py-2 flex-grow"
               />
-              <button
-                type="submit"
-                className="bg-black text-white px-4 py-2 rounded-md"
-              >
+              <button type="submit" className="bg-black text-white text-sm px-4 py-2 rounded-md">
                 Get listings
               </button>
 
@@ -235,9 +201,7 @@ export default function GetListings() {
             </div>
             <div className="mt-4">
               {errors.query && (
-                <span className="text-red-500 error-message">
-                  {errors.query.message}
-                </span>
+                <span className="text-red-500 error-message">{errors.query.message}</span>
               )}
             </div>
           </form>
