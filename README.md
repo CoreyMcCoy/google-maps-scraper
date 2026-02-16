@@ -2,50 +2,35 @@
 
 <div style="display: flex; gap: 16px;">
     <img src="public/google-maps-scraper-many.png" alt="Bulk Listings Scraper" style="width: 49%; max-width: 400px;">
-    <img src="public/google-maps-scraper-one.png" alt="Audit & Position Scraper" style="width: 49%; max-width: 400px;">
 </div>
 
 ## Overview
 
-This Google Maps Scraper is built with Next.js and let's users extract business listing data from Google Maps in **two distinct modes**:
+This Google Maps Scraper is built with Next.js and allows users to extract business listing data from Google Maps at scale.
 
-### 1. Bulk Listings Scraper
+### Bulk Listings Scraper
 
 - Enter a business category and location (e.g., "Plumbers in Waco")
-- Scrapes all Google Maps listings for that query
+- Scrapes Google Maps listings for that query with auto-scroll logic
 - Extracts:
   - Business name
   - Service category
   - Phone number
   - Website URL
-  - Rating & review count
-  - Address
+  - Rating
   - Google Business Profile (GBP) link
 - Results can be copied directly to Google Sheets
 
-### 2. Audit & Position Scraper
-
-- Enter a search query, target business name, category, and average dollar amount
-- Finds the position of the target business in the Google Maps results
-- Calculates potential monthly revenue missed if not in the top 3
-- Returns:
-  - Position of the business in results
-  - Total listings scraped
-  - Potential monthly revenue missed
-  - Calculation details
-  - Top 5 listings found
-
-Both modes use Puppeteer for browser automation and Cheerio for HTML parsing, with auto-scroll logic to load more results.
+Both the frontend and backend utilize Puppeteer for browser automation and Cheerio for robust HTML parsing of the latest Google Maps layout.
 
 ## Features
 
-- Two scraping modes: Bulk Listings and Audit/Position
 - Scrape Google Maps for business listings by category and location
-- Find a business's position in the Map Pack and estimate missed revenue
+- Advanced selector logic for high-accuracy data extraction
 - Autocomplete for valid business categories
-- Auto-scroll to load more results
+- Auto-scroll to load all available results
 - Copy results to Google Sheets (tab-separated)
-- Modern UI with Tailwind CSS
+- Modern UI with Tailwind CSS and Shadcn UI
 
 ## Installation
 
@@ -69,16 +54,14 @@ Both modes use Puppeteer for browser automation and Cheerio for HTML parsing, wi
    npm run dev
    ```
 2. Open [http://localhost:3000](http://localhost:3000) in your browser.
-3. Choose your mode:
-   - **Bulk Listings:** Enter a business category and location, then click "Get listings" to scrape all results.
-   - **Audit & Position:** Enter a search query, target business name, category, and average dollar amount, then click "Audit business" to find its position and estimate missed revenue.
+3. Enter a business category and location, then click "Get listings" to scrape results.
 4. Copy results to Google Sheets as needed.
 
 ## Notes
 
 - Some listings with "Call now" or "Order online" may not include phone/website info.
 - Scraping Google Maps may be subject to rate limits or changes in Google’s markup.
-- Revenue calculations use category-specific conversion rates and search volume data.
+- The scraper skips ads and invalid listings to ensure high-quality data.
 
 ## License
 
